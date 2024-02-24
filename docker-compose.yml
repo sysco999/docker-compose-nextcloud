@@ -14,7 +14,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./ nextcloud_data:/var/www/html
+      - nextcloud_data:/var/www/html
     depends_on:
       - db
     environment:
@@ -25,11 +25,26 @@ services:
       NEXTCLOUD_DB_USER: nextcloud
       NEXTCLOUD_DB_PASSWORD: mysecretpassword
 
+  collabora:
+    image: collabora/code
+    container_name: collabora
+    restart: always
+    ports:
+      - "9980:9980"
+    cap_add:
+      - MKNOD
+    environment:
+      - domain=34.70.191.205
+      - username=admin
+      - password=yourpassword
+    networks:
+      - internal_network
+
 volumes:
   nextcloud_data:
     driver: local
-    driver_opts:
-      type: none
-      device: ${PWD}/nextcloud_data
-      o: bind
+
+networks:
+  internal_network:
+    driver: bridge
 
