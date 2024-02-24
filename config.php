@@ -8,8 +8,6 @@ $CONFIG = array (
   'dbport' => '5432',
   'dbtableprefix' => '',
   'installed' => false,
+  'richdocumentscode_server' => 'http://collabora:9980',
 );
-
-
-
 
