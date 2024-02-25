@@ -25,7 +25,7 @@ services:
       NEXTCLOUD_DB_PORT: 5432
       NEXTCLOUD_DB_NAME: nextcloud
       NEXTCLOUD_DB_USER: nextcloud
-      NEXTCLOUD_DB_PASSWORD: mysecretpassword
+      NEXTCLOUD_DB_PASSWORD: NextcloudDBPasswordYobi
 
   collabora:
     build:
@@ -38,9 +38,9 @@ services:
     cap_add:
       - MKNOD
     environment:
-      - domain=34.70.191.205
+      - domain=nc-media.yib.io
       - username=admin
-      - password=yourpassword
+      - password=NextcloudPasswordYobi
     networks:
       - internal_network
 
