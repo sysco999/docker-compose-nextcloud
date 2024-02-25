@@ -1,0 +1,6 @@
+# Use the official Nextcloud image as the base image
+FROM nextcloud:latest
+
+WORKDIR /var/www/html
+
+COPY . .
