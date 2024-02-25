@@ -7,10 +7,12 @@ services:
       POSTGRES_DB: nextcloud
       POSTGRES_USER: nextcloud
       POSTGRES_PASSWORD: mysecretpassword
-
+      
   nextcloud:
     build:
       context: .
+      dockerfile: Dockerfile.nextcloud
+    container_name: collabora
     ports:
       - "8080:80"
     volumes:
@@ -26,7 +28,9 @@ services:
       NEXTCLOUD_DB_PASSWORD: mysecretpassword
 
   collabora:
-    image: collabora/code
+    build:
+      context: .
+      dockerfile: Dockerfile.nextcloud
     container_name: collabora
     restart: always
     ports:
